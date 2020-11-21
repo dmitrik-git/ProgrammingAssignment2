@@ -1,7 +1,16 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Good explanation of the lexical scoping 
+## https://github.com/lgreski/datasciencectacontent/blob/master/markdown/rprog-breakingDownMakeVector.md
 
-## Write a short comment describing this function
+## makeCacheMatrix creates a special "matrix" list object which contains the following elements:
+## x - the original input matrix to be inversed
+## invx - the value of the inversed matrix
+## set - a nested function to replace the original input x with a new matrix
+## get - a nested function to read the value of the original input matrix
+## setinvx - a nested function to store the cached value
+## getinvx - a nested function to read the cached value
+##
+## the final line list() is craeting the list object with named variables for the purpose of using the $ sign 
+## when calling the list arguments
 
 makeCacheMatrix <- function(x = matrix()) {
   invx <- NULL
@@ -19,7 +28,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve takes a special list object as input created by the makeCacheMatrix function
+## First, the function checks if the object alraedy has a previously cached invx value.
+## If so, the value is returned.
+##
+## Otherwise, the original matrix is fed in, inversed, and the value is stored in invx
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
